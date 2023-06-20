@@ -4,7 +4,7 @@ export const Todolist = (props) => {
             return <div style={{
                 textDecoration: item.deleted ? 'line-through' : 'none'
             }} onClick={()=>{
-                props.toggleStatus(item, index)
+                props.abc(item, index)
 
             }
             } key={index}>{item.text}</div>

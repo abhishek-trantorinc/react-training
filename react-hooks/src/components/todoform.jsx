@@ -2,7 +2,7 @@ import {Todolist} from "./todolist";
 import {useRef, useState} from "react";
 
 export const TodoForm = () => {
-    const [list, setList] = useState([]);
+    const [list, myState] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const onSubmit = () => {
         setList([...list, {deleted: false, text: inputValue}]);
