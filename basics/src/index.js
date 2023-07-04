@@ -4,11 +4,12 @@ import "./index.css";
 import LoginScreen from "./components/LoginScreen";
 import { Signup } from "./components/Signup";
 import reportWebVitals from "./reportWebVitals";
+import {Products} from "./components/products";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Signup />
+    <Products />
   </React.StrictMode>
 );
 
