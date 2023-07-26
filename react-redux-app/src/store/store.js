@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStore } from 'redux';
+import {compose, createStore} from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import rootReducer from './reducers/index';
@@ -8,6 +8,8 @@ const persistConfig = {
     storage: storage,
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer)
-let store = createStore(persistedReducer)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+let store = createStore(persistedReducer,composeEnhancers())
 let persistor = persistStore(store)
 export  { store, persistor }
