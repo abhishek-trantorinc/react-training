@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import {fetchProducts} from "../store/actions";
 
 const Home = () => {
     const dispatch = useDispatch();
-    const {count} = useSelector(state => state.counter)
+    const {products, loading} = useSelector(state => state?.products);
+    useEffect(() => {
+        dispatch(fetchProducts());
+    }, [])
     return (
         <div className="App">
-            <button onClick={()=>{
-                dispatch({type:"INCREMENT"})
-            }}>Add</button>
-            <button onClick={()=>{
-                dispatch({type:"DECREMENT"})
-            }}>Subtract</button>
-            <h1>{count}</h1>
+            {loading && <>Loading...</>}
+            {products && products.map((product, index) => {
+            return <div>{product.title}</div>
+            })
+            }
         </div>
     );
 };
